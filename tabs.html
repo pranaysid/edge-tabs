@@ -1,0 +1,16 @@
+<button onclick="openBingTabs()">Open 50 Bing tabs</button>
+
+<script>
+function openBingTabs() {
+  // Create an array of 50 random search queries.
+  var queries = [];
+  for (var i = 0; i < 50; i++) {
+    queries.push(Math.random().toString(36).substring(7));
+  }
+
+  // Open each search query in a new tab.
+  for (var i = 0; i < queries.length; i++) {
+    window.open('https://www.bing.com/?q=' + queries[i], '_blank');
+  }
+}
+</script>

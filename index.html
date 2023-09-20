@@ -1,16 +1,52 @@
-<button onclick="openBingTabs()">Open 50 Bing tabs</button>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open 50 Bing tabs</title>
+  <link rel="icon" href="http://www.bing.com/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-<script>
-function openBingTabs() {
-  // Create an array of 50 random search queries.
-  var queries = [];
-  for (var i = 0; i < 50; i++) {
-    queries.push(Math.random().toString(36).substring(7));
-  }
+    button {
+      width: 250px; /* Increased width */
+      height: 60px; /* Increased height */
+      font-size: 20px;
+      background: linear-gradient(to bottom, #ff7f50, #ff6347); /* Dull orange gradient */
+      border: none;
+      color: #fff;
+      border-radius: 8px; /* Increased border radius */
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
 
-  // Open each search query in a new tab.
-  for (var i = 0; i < queries.length; i++) {
-    window.open('https://www.bing.com/?q=' + queries[i], '_blank');
-  }
-}
-</script>
+    button:hover {
+      background: linear-gradient(to bottom, #ff6347, #ff7f50); /* Hover gradient */
+      transform: translateY(-4px); /* Increased hover transform */
+    }
+  </style>
+</head>
+<body>
+  <button onclick="openBingTabs()">Open 50 Bing tabs</button>
+
+  <script>
+    function openBingTabs() {
+      // Create an array of 50 random search queries.
+      var queries = [];
+      for (var i = 0; i < 50; i++) {
+        queries.push(Math.random().toString(36).substring(7));
+      }
+
+      // Open each search query in a new tab.
+      for (var i = 0; i < queries.length; i++) {
+        window.open('https://www.bing.com/?q=' + queries[i], '_blank');
+      }
+    }
+  </script>
+</body>
+</html>

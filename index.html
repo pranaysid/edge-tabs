@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Open 50 Bing tabs</title>
+  <title>Open Bing Tabs</title>
   <link rel="icon" href="http://www.bing.com/favicon.ico" type="image/x-icon">
   <style>
     body {
@@ -10,13 +10,17 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      flex-direction: column;
+    }
+
+    .button-container {
+      margin-bottom: 20px;
     }
 
     button {
       width: 250px; /* Increased width */
       height: 60px; /* Increased height */
       font-size: 20px;
-      background: linear-gradient(to bottom, #ff7f50, #ff6347); /* Dull orange gradient */
       border: none;
       color: #fff;
       border-radius: 8px; /* Increased border radius */
@@ -26,19 +30,45 @@
     }
 
     button:hover {
-      background: linear-gradient(to bottom, #ff6347, #ff7f50); /* Hover gradient */
       transform: translateY(-4px); /* Increased hover transform */
+    }
+
+    .orange-button {
+      background: linear-gradient(to bottom, #ff7f50, #ff6347); /* Dull orange gradient */
+    }
+
+    .ocean-blue-button {
+      background: linear-gradient(to bottom, #0074e4, #00a2ff); /* Ocean blue gradient */
     }
   </style>
 </head>
 <body>
-  <button onclick="openBingTabs()">Open 50 Bing tabs</button>
+  <div class="button-container">
+    <button class="orange-button" onclick="open50BingTabs()">Open 50 Bing tabs</button>
+  </div>
+
+  <div class="button-container">
+    <button class="ocean-blue-button" onclick="open15BingTabs()">Open 15 Bing tabs</button>
+  </div>
 
   <script>
-    function openBingTabs() {
+    function open50BingTabs() {
       // Create an array of 50 random search queries.
       var queries = [];
       for (var i = 0; i < 50; i++) {
+        queries.push(Math.random().toString(36).substring(7));
+      }
+
+      // Open each search query in a new tab.
+      for (var i = 0; i < queries.length; i++) {
+        window.open('https://www.bing.com/?q=' + queries[i], '_blank');
+      }
+    }
+
+    function open15BingTabs() {
+      // Create an array of 15 random search queries.
+      var queries = [];
+      for (var i = 0; i < 15; i++) {
         queries.push(Math.random().toString(36).substring(7));
       }
 
